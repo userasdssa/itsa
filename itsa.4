@@ -1,0 +1,27 @@
+﻿
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int start_h, start_m, end_h, end_m;
+    double fee = 0;
+
+    cout << "請輸入進入時間（時:分）：";
+    cin >> start_h >> start_m;
+    cout << "請輸入離開時間（時:分）：";
+    cin >> end_h >> end_m;
+    double x = (end_h - start_h) + (end_m - start_m) / 60.0;
+
+    if (x <= 2.0) 
+    {fee = ceil(x * 2) * 30.0;}
+    else if (x <= 4.0) 
+    {fee = 120.0 + ceil((x - 2.0) * 2) * 40.0;}
+    else {fee = 280.0 + ceil(x - 4.0) * 60.0;}
+
+    cout << "需繳交的停車費用為：" << fee << " 元" << endl;
+
+    return 0;
+}
